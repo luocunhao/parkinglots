@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="on" monitorInterval="1800">
+    <properties>
+        <property name="LOG_HOME">logs</property>
+        <property name="LOG_FILE_NAME">doorlock-server</property>
+    </properties>
+
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- <PatternLayout pattern="%d %-5p (%F:%L) - %m%n" /> -->
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %m%n" />
+        </Console>
+
+        <RollingRandomAccessFile name="FileLog"
+                                 fileName="${LOG_HOME}/${LOG_FILE_NAME}.log" filePattern="${LOG_HOME}/${LOG_FILE_NAME}.log.%d{yyyy-MM-dd-HH}">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %p %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="1">
+                    <IfFileName glob="${LOG_FILE_NAME}.log.*" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingRandomAccessFile>
+<!-- 配置mongdb appender -->  
+         <!--<NoSql name="mongoAppender">
+          
+           <MongoDb databaseName="admin" collectionName="admin" server="47.98.216.245" port="3399" userName="admin" password="111111" />  
+        
+        <MongoDb databaseName="admin" collectionName="smart-parkinglots" server="54.222.229.62" port="23770" userName="xlink" password="Mdb4Xlink" />  
+        </NoSql>
+        -->
+    </Appenders>
+ 
+    <Loggers>
+        <logger name="cn.xlink" level="debug"
+                includeLocation="true" additivity="false">
+            <appender-ref ref="FileLog" />
+            <appender-ref ref="Console" />
+        </logger>
+        <root level="debug" includeLocation="true" additivity="false">
+            <appender-ref ref="FileLog" />
+            <appender-ref ref="Console" />
+        </root>
+    </Loggers>
+</Configuration>

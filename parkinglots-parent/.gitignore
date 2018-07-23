@@ -1,0 +1,7 @@
+.idea
+*.iml
+target
+logs
+xlink-api-parkinglots/target
+xlink-parkinglots-client/target
+xlink-parkinglots-server/target

@@ -1,0 +1,9 @@
+diff a/parkinglots-parent/xlink-parkinglots-server/src/test/java/cn/xlink/changcheng/ParkingLotsTest.java b/parkinglots-parent/xlink-parkinglots-server/src/test/java/cn/xlink/changcheng/ParkingLotsTest.java	(rejected hunks)
+@@ -27,7 +27,6 @@
+ 	@Autowired
+ 	private MongoTemplate mongoTemplate;
+ 	
+-  @Test
+ //  @Test
+ //  public void saveProductInstance() throws Exception{
+ //	  ParkingLot parkingLot = new ParkingLot();

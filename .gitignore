@@ -1,0 +1,10 @@
+parkinglots-parent/.idea
+parkinglots-parent/*.iml
+parkinglots-parent/target
+parkinglots-parent/.log
+*.project
+*.settings
+*.classpath
+.idea
+logs/
+.project
